@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+export HERE=$(dirname $0 || echo ".")
+
+if [ "$(uname)" == "Darwin" ]; then
+    # Do something under Mac OS X platform
+    $HERE/vendor/hugo-v0.59.0/macos/hugo "$@"
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    # GNU/Linux platform
+    $HERE/vendor/hugo-v0.59.0/linux/hugo "$@"
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+    # Do something under 32 bits Windows NT platform
+    echo "No windows executable for 32bits"
+    exit 1
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+    # Do something under 64 bits Windows NT platform
+    $HERE/vendor/hugo-v0.59.0/windows/hugo.exe "$@"
+fi
