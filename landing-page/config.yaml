@@ -29,7 +29,7 @@ params:
     # Button text
     buttontext: Learn more
     # Where the main hero button links to
-    buttonlink: "#"
+    buttonlink: "mission/index.html"
     # Hero image (from static/images/___)
     image: illustrations/worker.svg
     # Footer logos (from static/images/logos/clients/___.svg)
@@ -165,3 +165,8 @@ params:
   #         link: /blog/first
   #       - text: Tech articles
   #         link: /blog/second
+deployment:
+  targets:
+    name: "s3-landing-page"
+    URL: "s3://caster-web?region=us-east-1"
+    cloudFrontDistributionID: "912236762686:distribution/E3JJKNWJ5T62RZ"
